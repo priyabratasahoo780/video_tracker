@@ -50,7 +50,7 @@ const Tracker = () => {
                           (filterStatus === 'Completed' && q.completed) || 
                           (filterStatus === 'Pending' && !q.completed);
       return matchSearch && matchDifficulty && matchStatus;
-    }).sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+    }).sort((a, b) => parseInt(a.number, 10) - parseInt(b.number, 10));
   }, [questions, search, filterDifficulty, filterStatus]);
 
   return (

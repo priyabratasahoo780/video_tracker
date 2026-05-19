@@ -12,7 +12,7 @@ const TableView = () => {
                           q.number.toString().includes(search);
     const matchesDifficulty = difficultyFilter === 'All' || q.difficulty === difficultyFilter;
     return matchesSearch && matchesDifficulty;
-  });
+  }).sort((a, b) => parseInt(a.number, 10) - parseInt(b.number, 10));
 
   const getDifficultyColor = (diff) => {
     switch (diff) {
