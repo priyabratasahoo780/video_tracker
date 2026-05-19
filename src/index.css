@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: var(--theme-dark);
+  --color-darker: var(--theme-darker);
+  --color-card: var(--theme-card);
+  --color-white: var(--theme-white);
+  --color-black: var(--theme-black);
+  
+  --color-gray-800: var(--theme-gray-800);
+  --color-gray-700: var(--theme-gray-700);
+  --color-gray-600: var(--theme-gray-600);
+  --color-gray-500: var(--theme-gray-500);
+  --color-gray-400: var(--theme-gray-400);
+  --color-gray-300: var(--theme-gray-300);
+  --color-gray-200: var(--theme-gray-200);
+
+  --color-neonBlue: #00f0ff;
+  --color-neonPurple: #b026ff;
+  --color-neonGreen: #39ff14;
+  --color-neonPink: #ff0055;
+  --shadow-neon: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+  --shadow-neon-hover: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.5);
+  --background-image-glass: var(--theme-glass);
+}
+
+:root {
+  /* LIGHT MODE */
+  --theme-darker: #f9fafb; 
+  --theme-dark: #ffffff;
+  --theme-card: #ffffff;
+  --theme-white: #111827; 
+  --theme-black: #ffffff;
+  
+  --theme-gray-800: #e5e7eb; 
+  --theme-gray-700: #d1d5db; 
+  --theme-gray-600: #9ca3af;
+  --theme-gray-500: #6b7280; 
+  --theme-gray-400: #4b5563; 
+  --theme-gray-300: #374151; 
+  --theme-gray-200: #1f2937; 
+  
+  --theme-glass: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.01));
+}
+
+.dark {
+  /* DARK MODE */
+  --theme-darker: #060809;
+  --theme-dark: #0d0f12;
+  --theme-card: #161a22;
+  --theme-white: #ffffff;
+  --theme-black: #000000;
+  
+  --theme-gray-800: #1f2937;
+  --theme-gray-700: #374151;
+  --theme-gray-600: #4b5563;
+  --theme-gray-500: #6b7280;
+  --theme-gray-400: #9ca3af;
+  --theme-gray-300: #d1d5db;
+  --theme-gray-200: #e5e7eb;
+  
+  --theme-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+}
+
+body {
+  background-color: var(--color-darker);
+  color: var(--color-gray-200);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.glassmorphism {
+  background-image: var(--background-image-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-gray-800);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--color-darker);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-700);
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gray-600);
+}
