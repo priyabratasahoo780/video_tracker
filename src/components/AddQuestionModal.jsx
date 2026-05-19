@@ -124,19 +124,19 @@ const AddQuestionModal = ({ onClose }) => {
           <form id="add-q-form" onSubmit={handleSubmit} className="flex flex-col gap-4">
             {activeTab === 'single' ? (
               <>
-            <div className="flex gap-4">
-              <div className="w-1/3">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="w-full sm:w-1/3">
                 <label className="block text-sm text-gray-400 mb-1">Number</label>
                 <input required type="number" name="number" value={formData.number} onChange={handleChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none" />
               </div>
-              <div className="w-2/3">
+              <div className="w-full sm:w-2/3">
                 <label className="block text-sm text-gray-400 mb-1">Question Name</label>
                 <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none" />
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <div className="w-1/2">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="w-full sm:w-1/2">
                 <label className="block text-sm text-gray-400 mb-1">Difficulty</label>
                 <select name="difficulty" value={formData.difficulty} onChange={handleChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none">
                   <option value="Easy">Easy</option>
@@ -144,7 +144,7 @@ const AddQuestionModal = ({ onClose }) => {
                   <option value="Hard">Hard</option>
                 </select>
               </div>
-              <div className="w-1/2">
+              <div className="w-full sm:w-1/2">
                 <label className="block text-sm text-gray-400 mb-1">Topic</label>
                 <select name="topic" value={formData.topic} onChange={handleChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none">
                   {topics.map(t => <option key={t} value={t}>{t}</option>)}
@@ -162,12 +162,12 @@ const AddQuestionModal = ({ onClose }) => {
               <textarea name="notes" value={formData.notes} onChange={handleChange} rows="3" className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none"></textarea>
             </div>
 
-            <div className="flex gap-4">
-              <div className="w-1/2">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="w-full sm:w-1/2">
                 <label className="block text-sm text-gray-400 mb-1">Long Video YouTube URL</label>
                 <input type="url" name="longVideoUrl" value={formData.longVideoUrl} onChange={handleChange} placeholder="https://youtube.com/watch?v=..." className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none" />
               </div>
-              <div className="w-1/2">
+              <div className="w-full sm:w-1/2">
                 <label className="block text-sm text-gray-400 mb-1">Short Video YouTube URL</label>
                 <input type="url" name="shortVideoUrl" value={formData.shortVideoUrl} onChange={handleChange} placeholder="https://youtube.com/shorts/..." className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none" />
               </div>
@@ -216,8 +216,8 @@ const AddQuestionModal = ({ onClose }) => {
                   <p className="text-xs text-gray-500 mt-1">Accepts formats like "1. Name" or just "Name". Default values below will apply to all questions in this batch.</p>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="w-1/2">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="w-full sm:w-1/2">
                     <label className="block text-sm text-gray-400 mb-1">Default Difficulty</label>
                     <select name="difficulty" value={bulkData.difficulty} onChange={handleBulkChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none">
                       <option value="Easy">Easy</option>
@@ -225,7 +225,7 @@ const AddQuestionModal = ({ onClose }) => {
                       <option value="Hard">Hard</option>
                     </select>
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-full sm:w-1/2">
                     <label className="block text-sm text-gray-400 mb-1">Default Topic</label>
                     <select name="topic" value={bulkData.topic} onChange={handleBulkChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none">
                       {topics.map(t => <option key={t} value={t}>{t}</option>)}

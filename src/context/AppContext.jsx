@@ -18,6 +18,8 @@ export const AppProvider = ({ children }) => {
     };
   });
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const [profile, setProfile] = useState(() => {
     const saved = localStorage.getItem('leetcode-profile');
     return saved ? JSON.parse(saved) : {
@@ -179,7 +181,7 @@ export const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ questions, addQuestion, addQuestionsBulk, updateQuestion, deleteQuestion, settings, updateSettings, clearAllData, loadDemoData, profile, updateProfile }}>
+    <AppContext.Provider value={{ questions, addQuestion, addQuestionsBulk, updateQuestion, deleteQuestion, settings, updateSettings, clearAllData, loadDemoData, profile, updateProfile, sidebarOpen, setSidebarOpen }}>
       {children}
     </AppContext.Provider>
   );
