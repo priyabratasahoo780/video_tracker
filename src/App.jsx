@@ -5,6 +5,7 @@ import Tracker from './pages/Tracker';
 import Analytics from './pages/Analytics';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import TableView from './pages/TableView';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/tracker" element={<Tracker />} />
+            <Route path="/table" element={<TableView />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />

@@ -51,6 +51,25 @@ export const AppProvider = ({ children }) => {
     setQuestions([...questions, { id: uuidv4(), dateAdded: new Date().toISOString(), ...q }]);
   };
 
+  const addQuestionsBulk = (newQsList) => {
+    const formatted = newQsList.map(q => ({
+      id: uuidv4(),
+      dateAdded: new Date().toISOString(),
+      completed: false,
+      longVideoEdited: false,
+      longVideoUploaded: false,
+      longVideoUrl: '',
+      shortVideoEdited: false,
+      shortVideoUploaded: false,
+      shortVideoUrl: '',
+      revision: false,
+      link: '',
+      notes: '',
+      ...q
+    }));
+    setQuestions(prev => [...prev, ...formatted]);
+  };
+
   const updateQuestion = (id, updatedFields) => {
     setQuestions(questions.map(q => q.id === id ? { ...q, ...updatedFields } : q));
   };
@@ -160,7 +179,7 @@ export const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ questions, addQuestion, updateQuestion, deleteQuestion, settings, updateSettings, clearAllData, loadDemoData, profile, updateProfile }}>
+    <AppContext.Provider value={{ questions, addQuestion, addQuestionsBulk, updateQuestion, deleteQuestion, settings, updateSettings, clearAllData, loadDemoData, profile, updateProfile }}>
       {children}
     </AppContext.Provider>
   );

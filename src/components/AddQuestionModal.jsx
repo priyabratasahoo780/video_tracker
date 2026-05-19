@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { FaTimes } from 'react-icons/fa';
 
 const AddQuestionModal = ({ onClose }) => {
-  const { addQuestion } = useContext(AppContext);
+  const { addQuestion, addQuestionsBulk } = useContext(AppContext);
+  const [activeTab, setActiveTab] = useState('single');
   const [formData, setFormData] = useState({
     number: '',
     name: '',
@@ -22,6 +23,12 @@ const AddQuestionModal = ({ onClose }) => {
     revision: false
   });
 
+  const [bulkData, setBulkData] = useState({
+    text: '',
+    difficulty: 'Easy',
+    topic: 'Arrays & Hashing'
+  });
+
   const topics = [
     'Arrays & Hashing', 'Two Pointers', 'Sliding Window', 'Stack', 
     'Binary Search', 'Linked List', 'Trees', 'Tries', 'Heap / Priority Queue', 
@@ -30,9 +37,47 @@ const AddQuestionModal = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.number) return;
-    addQuestion(formData);
+    if (activeTab === 'single') {
+      if (!formData.name || !formData.number) return;
+      addQuestion(formData);
+    } else {
+      if (!bulkData.text.trim()) return;
+      const lines = bulkData.text.split('\n');
+      const parsed = [];
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return;
+        
+        let number = 0;
+        let name = trimmed;
+        
+        const match = trimmed.match(/^(\d+)[\.\s\-–—]+(.*)$/);
+        if (match) {
+          number = parseInt(match[1], 10);
+          name = match[2].trim();
+        }
+        
+        parsed.push({
+          number,
+          name,
+          difficulty: bulkData.difficulty,
+          topic: bulkData.topic
+        });
+      });
+      
+      if (parsed.length > 0) {
+        addQuestionsBulk(parsed);
+      }
+    }
     onClose();
+  };
+
+  const handleBulkChange = (e) => {
+    const { name, value } = e.target;
+    setBulkData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleChange = (e) => {
@@ -51,7 +96,25 @@ const AddQuestionModal = ({ onClose }) => {
         className="glassmorphism w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh]"
       >
         <div className="p-4 border-b border-gray-800 flex justify-between items-center bg-darker/50">
-          <h3 className="text-xl font-bold text-white">Add New Question</h3>
+          <div className="flex flex-col">
+            <h3 className="text-xl font-bold text-white">Add LeetCode Questions</h3>
+            <div className="flex gap-4 mt-2">
+              <button 
+                type="button"
+                onClick={() => setActiveTab('single')}
+                className={`text-sm font-semibold pb-1 border-b-2 transition-all ${activeTab === 'single' ? 'text-neonBlue border-neonBlue' : 'text-gray-400 border-transparent hover:text-gray-300'}`}
+              >
+                Single Question
+              </button>
+              <button 
+                type="button"
+                onClick={() => setActiveTab('multiple')}
+                className={`text-sm font-semibold pb-1 border-b-2 transition-all ${activeTab === 'multiple' ? 'text-neonBlue border-neonBlue' : 'text-gray-400 border-transparent hover:text-gray-300'}`}
+              >
+                Bulk Import (Multiple)
+              </button>
+            </div>
+          </div>
           <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
             <FaTimes />
           </button>
@@ -59,6 +122,8 @@ const AddQuestionModal = ({ onClose }) => {
         
         <div className="p-6 overflow-y-auto flex-1 custom-scrollbar">
           <form id="add-q-form" onSubmit={handleSubmit} className="flex flex-col gap-4">
+            {activeTab === 'single' ? (
+              <>
             <div className="flex gap-4">
               <div className="w-1/3">
                 <label className="block text-sm text-gray-400 mb-1">Number</label>
@@ -134,13 +199,48 @@ const AddQuestionModal = ({ onClose }) => {
                 Short Video Uploaded
               </label>
             </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">Paste Questions (one per line)</label>
+                  <textarea 
+                    required
+                    name="text"
+                    value={bulkData.text}
+                    onChange={handleBulkChange}
+                    rows="6"
+                    placeholder={`e.g.&#10;1. Two Sum&#10;121. Best Time to Buy and Sell Stock&#10;Trapping Rain Water`}
+                    className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none placeholder-gray-600 font-mono text-sm"
+                  ></textarea>
+                  <p className="text-xs text-gray-500 mt-1">Accepts formats like "1. Name" or just "Name". Default values below will apply to all questions in this batch.</p>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-1/2">
+                    <label className="block text-sm text-gray-400 mb-1">Default Difficulty</label>
+                    <select name="difficulty" value={bulkData.difficulty} onChange={handleBulkChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none">
+                      <option value="Easy">Easy</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Hard">Hard</option>
+                    </select>
+                  </div>
+                  <div className="w-1/2">
+                    <label className="block text-sm text-gray-400 mb-1">Default Topic</label>
+                    <select name="topic" value={bulkData.topic} onChange={handleBulkChange} className="w-full bg-darker border border-gray-700 rounded-lg p-2 text-white focus:border-neonBlue focus:outline-none">
+                      {topics.map(t => <option key={t} value={t}>{t}</option>)}
+                    </select>
+                  </div>
+                </div>
+              </>
+            )}
           </form>
         </div>
 
         <div className="p-4 border-t border-gray-800 bg-darker/50 flex justify-end gap-3">
           <button onClick={onClose} className="px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors">Cancel</button>
           <button type="submit" form="add-q-form" className="bg-neonBlue text-darker font-bold px-6 py-2 rounded-lg hover:shadow-neon transition-all">
-            Save Question
+            {activeTab === 'single' ? 'Save Question' : 'Import Questions'}
           </button>
         </div>
       </motion.div>

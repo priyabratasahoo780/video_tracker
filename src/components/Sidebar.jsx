@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaListUl, FaChartPie, FaUserCog, FaCog } from 'react-icons/fa';
+import { FaHome, FaListUl, FaChartPie, FaUserCog, FaCog, FaTable } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 
 const Sidebar = () => {
@@ -15,6 +15,7 @@ const Sidebar = () => {
       <nav className="flex-1 px-2 md:px-4 py-8 flex flex-col gap-2">
         <NavItem to="/" icon={<FaHome />} label="Dashboard" />
         <NavItem to="/tracker" icon={<FaListUl />} label="Tracker" />
+        <NavItem to="/table" icon={<FaTable />} label="Table View" />
         <NavItem to="/analytics" icon={<FaChartPie />} label="Analytics" />
       </nav>
       <div className="p-4 flex flex-col gap-2 border-t border-gray-800">
