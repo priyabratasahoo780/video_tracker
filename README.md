@@ -1,127 +1,142 @@
-# ⚡ CodeTrack — Futuristic LeetCode & Content Creator Dashboard
+# <align align="center">⚡ CodeTrack — The Cyberpunk LeetCode & Creator Dashboard</align>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
-  <img src="https://img.shields.io/badge/Recharts-22b5e3?style=for-the-badge&logoColor=white" alt="Recharts" />
-  <br />
-  <a href="#-features">Explore Features</a> •
-  <a href="#%EF%B8%8F-tech-stack">Tech Stack</a> •
-  <a href="#-getting-started">Getting Started</a> •
-  <a href="#-project-architecture">Project Architecture</a>
+  <p align="center">
+    <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+    <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+    <img src="https://img.shields.io/badge/Recharts-22b5e3?style=for-the-badge&logoColor=white" />
+  </p>
+  
+  <h4>A clinical, cyberpunk-themed tracking suite engineered for developers, educators, and content creators.</h4>
+
+  <p>
+    <a href="#-key-modules">Modules</a> • 
+    <a href="#%EF%B8%8F-tech-specs">Tech Specs</a> • 
+    <a href="#-quick-start">Quick Start</a> • 
+    <a href="#-project-anatomy">Anatomy</a>
+  </p>
 </div>
 
 ---
 
-**CodeTrack** is a premium, SaaS-like productivity tracker designed specifically for coding content creators, educators, and software engineers. Built with a clinical cyberpunk aesthetic, it features a state-of-the-art dark UI glowing with neon highlights, responsive glassmorphism containers, smooth animations, and advanced analytics.
-
-It lets you seamlessly track your LeetCode DSA progress alongside your video production workflow (editing, uploading, and managing both Long-form videos and YouTube Shorts/Reels), complete with inline video previews.
-
----
-
-## 🚀 Features
-
-### 1. 📊 Interactive SaaS Dashboard
-- **Dynamic Metrics**: Keep an eye on total questions solved, video editing logs, and upload counters.
-- **Intelligent Streak Counter**: Calculates and tracks consecutive coding streaks based on completion dates.
-- **Difficulty Stats**: Visualizes your progress through custom-designed Easy, Medium, and Hard progress bars with glowing states.
-- **Recent Activity Feed**: Auto-sorts and lists recent question submissions.
-
-### 2. 📝 Questions Tracker Grid
-- **Workflow Toggle**: Separate tracking for **Long Videos** (tutorials) and **Short Videos** (Shorts/Reels) with independent `EDITED` and `UPLOADED` flags.
-- **Cinematic Previews**: Embedded YouTube frame player lets you preview and watch uploaded videos in-app without redirection.
-- **Notes & Intuitions**: Expandable text panels for recording DSA key insights.
-- **Priority Filters**: Quick filter components to sort by difficulty, completion state, or keyword search.
-
-### 3. 📈 Advanced Analytics
-- **Activity Heatmap**: A GitHub-inspired 140-day contribution graph that changes color intensity depending on the volume of questions completed.
-- **Topic Distribution**: An interactive, glowing donut chart built with Recharts, categorizing solved questions by DSA topics (e.g., Arrays, Backtracking, Graphs).
-
-### 4. ⚙️ App Settings & Theme Engine
-- **Dynamic Light/Dark Mode**: Utilizes custom CSS properties mapped through Tailwind CSS v4 variables to swap between themes instantly.
-- **Browser Notifications**: Native browser permission integration to trigger desktop reminders.
-- **Confetti Toggle**: Turn rewarding victory confetti animations on or off.
-- **Data Export & Clear**: Backup your progress in JSON or trigger a master factory reset.
+## 🌌 The Aesthetic Philosophy
+**CodeTrack** moves away from generic, plain spreadsheets. Inspired by modern SaaS dashboard interfaces and neon retro-futurism, the application leverages:
+* 🪟 **Glassmorphism panels** reflecting ambient color backdrops.
+* ⚡ **Physics-based micro-interactions** handled by Framer Motion.
+* 🎨 **Variables-mapped design system** supporting instant dark-to-light translation.
+* 🍿 **Reward-oriented gamification** with dynamic confetti cannons on problem completion.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Key Modules
 
-| Technology | Purpose | Key Features |
-| :--- | :--- | :--- |
-| **React JS 19** | Frontend Framework | State-driven UI, Context API, Hooks |
-| **Vite** | Build Tool | Lightning-fast Hot Module Replacement (HMR) |
-| **Tailwind CSS v4** | UI Styling | CSS Variables theme mapping, custom utility classes |
-| **Framer Motion** | Motion Graphics | Silky physics-based spring toggles and animations |
-| **Recharts** | Data Visualizations | Glowing donut charts and interactive tooltips |
-| **Canvas Confetti** | Gamification | Visual reward triggers upon completing questions |
-| **Local Storage** | Data Persistence | Offline-first, browser-level database |
+### 1. 📊 Creator Command Center (Dashboard)
+The dashboard operates as the central hub of your coding and media workflows:
+* **Real-time Analytics**: Solve counts, long videos, and short videos tracking cards.
+* **Algorithmic Streak Meter**: Dynamic calculations tracking consecutive days of problem-solving.
+* **DSA Difficulty Breakdowns**: Glowing color-coded bars indicating Easy, Medium, and Hard task percentages.
+* **Activity Log**: Chronologically lists recent question logs.
+
+### 2. 📝 Questions & Media Hub (Tracker)
+A grid-based tracking matrix that merges coding achievements with your media pipeline:
+* **Workflow Splits**: Track content editing and uploads separately for **Long Tutorials** and **Short Videos**.
+* **Embedded Video Player**: Integrated YouTube frame parser lets you watch uploaded content in a responsive overlay modal.
+* **Topic Badging**: Custom categorization badges mapping out problem sectors.
+* **Keyword Search & Filters**: Instant matching based on index values, titles, difficulty rating, or status.
+
+### 3. 📉 Advanced Analytics Engine
+* **Contribution Heatmap**: A 140-day contribution graph that brightens with electric blue hues as your daily productivity climbs.
+* **Distribution Analyzer**: Recharts-driven interactive donut visualization showing your DSA topic layout with custom tooltip card overlays.
+
+### 4. ⚙️ Preferences & Factory Control
+* **Flexible Light/Dark Theme**: Flips CSS custom color variables dynamically to preserve style layout.
+* **Browser Alert Integrations**: Integrates with standard browser APIs to request desktop push notifications.
+* **Confetti Toggles**: Turn rewards on/off.
+* **Data Backups**: Fast JSON imports and exports, plus confirmation master clear triggers.
 
 ---
 
-## 🏁 Getting Started
+## 🛠️ Tech Specs
 
-To get a local copy of CodeTrack running, follow these steps.
+```mermaid
+graph TD
+    A[Vite App Mount] --> B[AppContext Provider]
+    B --> C[Sidebar Navigation]
+    B --> D[Dashboard view]
+    B --> E[Questions Tracker]
+    B --> F[Advanced Analytics]
+    B --> G[Profile Settings]
+    
+    E --> H[AddQuestion Modal]
+    E --> I[YouTube Player Modal]
+    F --> J[Recharts Pie Analyzer]
+    F --> K[CSS Heatmap Grid]
+    G --> L[Browser Notifications]
+    G --> M[Local Storage Factory Reset]
+```
 
-### Prerequisites
-Make sure you have Node.js (version 18 or higher) and npm installed.
+* **Frontend Engine**: React 19.2.6 (context-based state management).
+* **Speed Framework**: Vite 8.0.12 (HMR compiler).
+* **Styles & Theme**: Tailwind CSS v4.0.0 (dynamic theme tokenization).
+* **Charting System**: Recharts 2.12+ (customized glowing SVG components).
+
+---
+
+## 🏁 Quick Start
+
+Setting up CodeTrack locally is extremely simple.
 
 ### Installation
-1. Clone the repository:
+
+1. **Clone the repository**
    ```bash
    git clone https://github.com/priyabratasahoo780/video_tracker.git
    ```
-2. Navigate to the project folder:
+
+2. **Access directory & install dependencies**
    ```bash
    cd video_tracker
-   ```
-3. Install dependencies:
-   ```bash
    npm install
    ```
-4. Start the development server:
+
+3. **Launch local dev environment**
    ```bash
    npm run dev
    ```
 
-Open your browser and navigate to `http://localhost:5173` to explore CodeTrack.
+The local development server will spin up instantly. Open your browser to `http://localhost:5173`.
 
 ---
 
-## 📁 Project Architecture
+## 📂 Project Anatomy
 
 ```
 video_tracker/
-├── public/                  # Favicons and Static SVGs
+├── public/                 # Static SVG icons and favicons
 ├── src/
-│   ├── assets/              # SVGs, banners, and static assets
+│   ├── assets/             # Branding graphics
 │   ├── components/
-│   │   ├── AddQuestionModal.jsx  # Fully functional creator questionnaire
-│   │   └── Sidebar.jsx      # Cyberpunk neon responsive sidebar navigation
+│   │   ├── AddQuestionModal.jsx # Dynamic form overlay
+│   │   └── Sidebar.jsx     # Side navbar panel with responsive controls
 │   ├── context/
-│   │   └── AppContext.jsx   # Global Context, local storage synchronization, & settings logic
+│   │   └── AppContext.jsx  # Global storage hub, settings, & CRUD handlers
 │   ├── pages/
-│   │   ├── Dashboard.jsx    # Stats, Recent feed, and progress metrics
-│   │   ├── Tracker.jsx      # DSA question grid, search filters, and YouTube previews
-│   │   ├── Analytics.jsx    # Heatmaps and Recharts distribution
-│   │   ├── Profile.jsx      # User credentials and custom avatar fields
-│   │   └── Settings.jsx     # Theme variables, notifications, and factory reset
-│   ├── App.jsx              # Navigation Router setup
-│   ├── index.css            # Tailwind Imports, Theme configurations & Global overrides
-│   └── main.jsx             # React Virtual DOM mounting
-├── vite.config.js           # Vite Tailwind configuration
-└── package.json             # Core scripts and dependencies
+│   │   ├── Dashboard.jsx   # Streak tracker, feed, and difficulty ratios
+│   │   ├── Tracker.jsx     # Card matrix, media filters, and YouTube iframe
+│   │   ├── Analytics.jsx   # Heatmap contribution grid and charts
+│   │   ├── Profile.jsx     # User details card with custom avatar forms
+│   │   └── Settings.jsx    # Sound toggles, notifications, and reset
+│   ├── App.jsx             # Route layout setup
+│   ├── index.css           # Tailwind custom imports and root theme variables
+│   └── main.jsx            # Application mount point
+├── vite.config.js          # Vite config using @tailwindcss/vite
+└── package.json            # Development dependencies
 ```
-
----
-
-## 🛡️ License
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
 <div align="center">
-  <p>Designed with ❤️ by CodeTrack Creators</p>
+  <p>Engineered for high-performing developer creators. 🌟</p>
 </div>
